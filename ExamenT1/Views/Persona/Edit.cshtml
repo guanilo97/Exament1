@@ -1,0 +1,97 @@
+﻿
+@{
+    var personas = (Personas)ViewBag.persona;
+}
+<h1>Editar Cuenta</h1>
+<div class="row">
+    <div class="col-6 offset-3">
+        <form action="/persona/edit" method="post">
+            <div class="form-group">
+                <div>
+                    
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control" name="Nombre" value="@personas.Nombre" />
+                    @Html.ValidationMessage("Nombre")
+                </div>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input class="form-control" name="Apellido" value="@personas.Apellido" />
+                    @Html.ValidationMessage("Apellido")
+                </div>
+                <div class="form-group">
+                    <label>Fecha_nacimiento</label>
+                    <input class="form-control" name="Fecha_nacimiento" value="@personas.Fecha_nacimiento" />
+                    @Html.ValidationMessage("Fecha_nacimiento")
+                </div>
+                <div class="form-group">
+                    <label>DNI</label>
+                    <input class="form-control" name="DNI" value="@personas.DNI" />
+                    @Html.ValidationMessage("DNI")
+                </div>
+                <div class="form-group">
+                    <label>Genero</label>
+                    <select name="Genero">
+                        @foreach (var item in ViewBag.Genero)
+                        {
+                            if (personas.Genero == item)
+                            {
+                                <option value="@item" selected>@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
+
+                        }
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ciudad</label>
+                    <select name="Ciudad">
+                        @foreach (var item in ViewBag.ciudad)
+                        {
+                            if (personas.Genero == item)
+                            {
+                                <option value="@item" selected>@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
+
+                        }
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input class="form-control" name="Direccion" value="@personas.direccion" />
+                    @Html.ValidationMessage("direccion")
+                </div>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <input class="form-control" name="Correo" value="@personas.Correo" />
+                    @Html.ValidationMessage("Correo")
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" name="Username" value="@personas.Username" />
+                    @Html.ValidationMessage("Username")
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input class="form-control" name="Contraseña" value="@personas.Contraseña" />
+                    @Html.ValidationMessage("Contraseña")
+                </div>
+
+                <button>Guardar</button>
+
+            </div>
+</form>
+    </div>
+</div>
+
+
